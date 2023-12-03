@@ -16,6 +16,12 @@
             flex-direction: column;
             align-items: center;
         }
+
+        #weatherImage {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -25,26 +31,8 @@
         <p id="wind"></p>
         <p id="description"></p>
         <p id="forecast"></p>
+        <img id="weatherImage" alt="Clima" />
     </div>
-
-    <script>
-        // Cambia 'japon' por la ciudad que desees obtener
-        const ciudad = 'japon';
-
-        fetch(`https://goweather.herokuapp.com/weather/${ciudad}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('temperature').innerText = `Temperatura: ${data.temperature}`;
-                document.getElementById('wind').innerText = `Viento: ${data.wind}`;
-                document.getElementById('description').innerText = `Descripción: ${data.description}`;
-                document.getElementById('forecast').innerText = `Pronóstico: ${data.forecast}`;
-            })
-            .catch(error => {
-                console.error('Error al obtener datos del clima:', error);
-                document.getElementById('weatherData').innerText = 'Error al obtener datos del clima.';
-            });
-    </script>
+    <script src="clima.js"></script>
 </body>
 </html>
-
-
